@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Cursor />
       <Navbar />
-      <main style={{ position: "relative", zIndex: 2 }}>
+      <main className="px-4 md:px-8 lg:px-12" style={{ position: "relative", zIndex: 2 }}>
         <Hero />
         <About />
         <Skills />

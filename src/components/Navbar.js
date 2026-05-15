@@ -20,8 +20,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-10"
       style={{
+        paddingInline: "1rem",
         background: scrolled ? "rgba(5,5,5,0.95)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,0,255,0.15)" : "none",
@@ -37,8 +38,9 @@ export default function Navbar() {
         }}
       />
 
-      {/* Desktop nav */}
-      <div className="hidden md:flex justify-between items-center px-12 py-4">
+      <div className="max-w-7xl mx-auto w-full">
+        {/* Desktop nav */}
+        <div className="hidden md:flex justify-between items-center py-2 md:py-4">
         <span
           className="text-2xl font-bold"
           style={{
@@ -82,7 +84,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile nav */}
-      <div className="flex md:hidden justify-between items-center px-6 py-4">
+      <div className="flex md:hidden justify-between items-center py-4">
         <span
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
@@ -131,6 +133,7 @@ export default function Navbar() {
             </a>
           ))}
         </div>
+      </div>
       </div>
     </nav>
   );
