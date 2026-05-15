@@ -22,9 +22,9 @@ export default function About() {
   }, []);
 
   const stats = [
-    { label: "Projects Built", value: "20+" },
+    { label: "Projects Built", value: "8+" },
     { label: "Cups of Coffee", value: "∞" },
-    { label: "Lines of Code", value: "50k+" },
+    { label: "Technologies", value: "15+" },
     { label: "Years Coding", value: "3+" },
   ];
 
@@ -32,9 +32,8 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center py-24 px-6 overflow-hidden"
+      className="relative min-h-screen flex items-center py-32 overflow-hidden"
     >
-      {/* Background accent */}
       <div
         className="absolute top-0 right-0 w-1/2 h-full pointer-events-none"
         style={{
@@ -43,8 +42,8 @@ export default function About() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
-        {/* Left: text */}
+      <div className="max-w-6xl mx-auto w-full px-8 md:px-16 grid md:grid-cols-2 gap-16 items-center">
+        {/* Left */}
         <div>
           <p
             className="section-tag reveal"
@@ -73,7 +72,7 @@ export default function About() {
               fontStyle: "italic",
             }}
           >
-            I&apos;m a maximalist developer who believes software should be an{" "}
+            I&apos;m a developer who believes software should be an{" "}
             <span className="neon-text-pink">experience</span>, not just a tool. I craft
             interactive, visually explosive digital worlds that make people feel something.
           </p>
@@ -81,30 +80,26 @@ export default function About() {
             className="reveal mb-10 leading-relaxed"
             style={{
               fontFamily: "'Space Mono', monospace",
-              fontSize: "0.9rem",
-              color: "rgba(255,255,255,0.55)",
-              lineHeight: 1.8,
+              fontSize: "0.88rem",
+              color: "rgba(255,255,255,0.5)",
+              lineHeight: 1.9,
             }}
           >
-            From Three.js universes to full-stack applications, I push every pixel until it
-            screams. Based wherever the internet takes me. Obsessed with neon, noise, and making
-            the web feel alive.
+            From AI detectors to full-stack platforms, I push every project until it screams.
+            Obsessed with neon, clean logic, and making the web feel alive.
           </p>
           <a href="#contact" className="reveal neon-btn inline-block">
             Get In Touch
           </a>
         </div>
 
-        {/* Right: stats grid */}
+        {/* Right: stats */}
         <div className="grid grid-cols-2 gap-4">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`reveal p-6 ${i % 2 === 0 ? "neon-border-pink" : "neon-border-cyan"}`}
-              style={{
-                background: "rgba(255,255,255,0.02)",
-                animationDelay: `${i * 0.1}s`,
-              }}
+              className={`reveal p-8 ${i % 2 === 0 ? "neon-border-pink" : "neon-border-cyan"}`}
+              style={{ background: "rgba(255,255,255,0.02)" }}
             >
               <div
                 style={{
@@ -123,7 +118,7 @@ export default function About() {
                   fontSize: "0.7rem",
                   color: "rgba(255,255,255,0.4)",
                   letterSpacing: "0.15em",
-                  marginTop: "8px",
+                  marginTop: "10px",
                 }}
               >
                 {s.label}

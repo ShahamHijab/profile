@@ -5,19 +5,19 @@ import dynamic from "next/dynamic";
 const SkillsScene = dynamic(() => import("./SkillsScene"), { ssr: false });
 
 const skills = [
-  { name: "JavaScript / TypeScript", level: 92, color: "#ffff00" },
-  { name: "React / Next.js", level: 90, color: "#00ffff" },
-  { name: "Three.js / WebGL", level: 78, color: "#ff00ff" },
-  { name: "Node.js / Express", level: 85, color: "#00ff88" },
-  { name: "Python / Django", level: 75, color: "#ff6600" },
-  { name: "PostgreSQL / MongoDB", level: 80, color: "#bf00ff" },
-  { name: "Docker / DevOps", level: 68, color: "#00ffff" },
-  { name: "UI/UX Design", level: 82, color: "#ff00ff" },
+  { name: "JavaScript / Python", level: 88, color: "#ffff00" },
+  { name: "React / Next.js", level: 84, color: "#00ffff" },
+  { name: "Three.js / WebGL", level: 70, color: "#ff00ff" },
+  { name: "Node.js / Express", level: 80, color: "#00ff88" },
+  { name: "SQL / Databases", level: 82, color: "#ff6600" },
+  { name: "Machine Learning / AI", level: 75, color: "#bf00ff" },
+  { name: "Computer Vision", level: 72, color: "#00ccff" },
+  { name: "UI/UX & Frontend", level: 85, color: "#ff00aa" },
 ];
 
 const tools = [
-  "VS Code", "Git", "Figma", "Vercel", "AWS", "Tailwind", "GSAP", "Prisma",
-  "GraphQL", "Redis", "Linux", "Webpack",
+  "VS Code", "Git", "GitHub", "Figma", "Vercel", "OpenCV",
+  "TensorFlow", "MySQL", "Tailwind", "Linux", "Postman", "Arduino",
 ];
 
 export default function Skills() {
@@ -46,7 +46,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative min-h-screen py-24 px-6 overflow-hidden flex items-center"
+      className="relative min-h-screen py-32 overflow-hidden flex items-center"
     >
       <SkillsScene />
 
@@ -58,7 +58,7 @@ export default function Skills() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-8 md:px-16">
         <p
           className="section-tag reveal"
           style={{ fontFamily: "'Space Mono', monospace", color: "#ffff00" }}
@@ -79,7 +79,6 @@ export default function Skills() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-16">
-          {/* Skill bars */}
           <div className="space-y-7">
             {skills.map((skill, i) => (
               <div key={skill.name} className="reveal">
@@ -128,7 +127,6 @@ export default function Skills() {
             ))}
           </div>
 
-          {/* Tools cloud */}
           <div className="reveal-right">
             <p
               style={{
@@ -151,7 +149,7 @@ export default function Skills() {
                     style={{
                       fontFamily: "'Space Mono', monospace",
                       fontSize: "0.75rem",
-                      padding: "6px 14px",
+                      padding: "8px 16px",
                       border: `1px solid ${c}40`,
                       color: c,
                       textShadow: `0 0 6px ${c}`,
@@ -175,17 +173,16 @@ export default function Skills() {
               })}
             </div>
 
-            {/* About section extra quote */}
             <blockquote
               className="mt-12"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: "1.3rem",
+                fontSize: "1.2rem",
                 fontStyle: "italic",
-                color: "rgba(255,255,255,0.35)",
+                color: "rgba(255,255,255,0.3)",
                 borderLeft: "3px solid #ff00ff",
                 paddingLeft: "20px",
-                lineHeight: 1.6,
+                lineHeight: 1.7,
               }}
             >
               &ldquo;Code is my canvas. Every project is a painting that bleeds neon.&rdquo;

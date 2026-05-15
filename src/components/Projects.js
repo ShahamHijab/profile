@@ -6,49 +6,76 @@ const ProjectsScene = dynamic(() => import("./ProjectsScene"), { ssr: false });
 
 const projects = [
   {
-    title: "NeonOS",
-    desc: "A browser-based OS simulation with draggable windows, a terminal, and a neon aesthetic. Built with React and custom drag logic.",
-    tags: ["React", "CSS", "JavaScript"],
+    title: "VisionBot",
+    desc: "An AI-powered vision bot that processes and understands visual input. Built with Python and deep learning.",
+    tags: ["Python", "AI", "Computer Vision"],
     color: "#ff00ff",
-    repo: "https://github.com/shahamhijab/neonos",
+    repo: "https://github.com/ShahamHijab/visionbot",
     year: "2024",
-    emoji: "🖥️",
+    emoji: "🤖",
   },
   {
-    title: "Pulse API",
-    desc: "High-performance REST API with real-time WebSocket support, JWT auth, and rate limiting. Handles 10k+ requests/minute.",
-    tags: ["Node.js", "Express", "PostgreSQL"],
+    title: "Netixsol Internship",
+    desc: "A collection of web development projects built during my internship at Netixsol — includes full websites and components.",
+    tags: ["HTML", "CSS", "JavaScript", "Web Dev"],
     color: "#00ffff",
-    repo: "https://github.com/shahamhijab/pulse-api",
+    repo: "https://github.com/ShahamHijab/Netixsol-Internship",
     year: "2024",
-    emoji: "⚡",
+    emoji: "💼",
   },
   {
-    title: "Cosmos 3D",
-    desc: "Interactive solar system simulation using Three.js with realistic orbital mechanics, textures, and a cinematic camera system.",
-    tags: ["Three.js", "WebGL", "GSAP"],
+    title: "ASL 3-Letters Detector",
+    desc: "Detects American Sign Language hand signs for 3-letter words in real time using Python and computer vision.",
+    tags: ["Python", "OpenCV", "ML"],
     color: "#ffff00",
-    repo: "https://github.com/shahamhijab/cosmos3d",
-    year: "2023",
-    emoji: "🌌",
-  },
-  {
-    title: "DropZone",
-    desc: "A real-time file sharing platform with drag-and-drop uploads, shareable links, and end-to-end encryption.",
-    tags: ["Next.js", "AWS S3", "Prisma"],
-    color: "#00ff88",
-    repo: "https://github.com/shahamhijab/dropzone",
-    year: "2023",
-    emoji: "📁",
-  },
-  {
-    title: "ChromaUI",
-    desc: "An open-source component library with 40+ neon-styled, fully accessible React components. Used by 500+ developers.",
-    tags: ["React", "TypeScript", "Storybook"],
-    color: "#ff6600",
-    repo: "https://github.com/shahamhijab/chromaui",
+    repo: "https://github.com/ShahamHijab/ASL-3Letters-Detector-Python",
     year: "2024",
-    emoji: "🎨",
+    emoji: "🤟",
+  },
+  {
+    title: "Solar Panel Cleaner",
+    desc: "Automated solar panel cleaning system — hardware + software project that keeps panels efficient without manual effort.",
+    tags: ["Automation", "IoT", "Python"],
+    color: "#00ff88",
+    repo: "https://github.com/ShahamHijab/Automated-solar-panel-cleaning-system",
+    year: "2024",
+    emoji: "☀️",
+  },
+  {
+    title: "TalentTrail",
+    desc: "A talent discovery and tracking platform that connects recruiters with candidates through smart filtering.",
+    tags: ["Web App", "JavaScript", "Database"],
+    color: "#ff6600",
+    repo: "https://github.com/ShahamHijab/TalentTrail",
+    year: "2024",
+    emoji: "🎯",
+  },
+  {
+    title: "Clinic Database",
+    desc: "A full clinic management database system with patient records, appointments, and billing — built in SQL.",
+    tags: ["SQL", "Database", "Systems"],
+    color: "#bf00ff",
+    repo: "https://github.com/ShahamHijab/Clinic-Database-System",
+    year: "2023",
+    emoji: "🏥",
+  },
+  {
+    title: "Code Breaker",
+    desc: "A cryptography/puzzle game where players crack codes and ciphers across escalating levels of difficulty.",
+    tags: ["Game", "Python", "Logic"],
+    color: "#ff00aa",
+    repo: "https://github.com/ShahamHijab/Code-Breaker",
+    year: "2023",
+    emoji: "🔐",
+  },
+  {
+    title: "Image Caption Generator",
+    desc: "Generates natural language captions for images automatically using deep learning and NLP models.",
+    tags: ["Python", "Deep Learning", "NLP"],
+    color: "#00ccff",
+    repo: "https://github.com/ShahamHijab/Image-Caption-Generator",
+    year: "2023",
+    emoji: "🖼️",
   },
 ];
 
@@ -61,7 +88,7 @@ export default function Projects() {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 100);
+              setTimeout(() => el.classList.add("visible"), i * 80);
             });
           }
         });
@@ -76,7 +103,7 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="relative min-h-screen py-24 px-6 overflow-hidden"
+      className="relative min-h-screen py-32 overflow-hidden"
     >
       <ProjectsScene />
 
@@ -88,7 +115,7 @@ export default function Projects() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-16">
         <p
           className="section-tag reveal"
           style={{ fontFamily: "'Space Mono', monospace", color: "#ff6600" }}
@@ -119,7 +146,6 @@ export default function Projects() {
           → CLICK ANY CARD TO OPEN THE REPOSITORY
         </p>
 
-        {/* Projects grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p, i) => (
             <div
@@ -129,10 +155,12 @@ export default function Projects() {
               style={{
                 background: "rgba(255,255,255,0.025)",
                 border: `1px solid ${p.color}30`,
-                padding: "28px",
+                padding: "28px 28px 48px 28px",
                 position: "relative",
                 overflow: "hidden",
+                borderRadius: "2px",
                 animationDelay: `${i * 0.1}s`,
+                cursor: "pointer",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = `${p.color}80`;
@@ -143,19 +171,14 @@ export default function Projects() {
                 e.currentTarget.style.boxShadow = "none";
               }}
             >
-              {/* Corner accent */}
               <div
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  right: 0,
-                  width: "60px",
-                  height: "60px",
+                  position: "absolute", top: 0, right: 0,
+                  width: "60px", height: "60px",
                   background: `linear-gradient(225deg, ${p.color}20, transparent)`,
                 }}
               />
 
-              {/* Year */}
               <div
                 style={{
                   fontFamily: "'Space Mono', monospace",
@@ -168,13 +191,12 @@ export default function Projects() {
                 {p.year}
               </div>
 
-              {/* Emoji + title */}
               <div className="flex items-start gap-3 mb-4">
                 <span style={{ fontSize: "1.8rem" }}>{p.emoji}</span>
                 <h3
                   style={{
                     fontFamily: "'Bebas Neue', sans-serif",
-                    fontSize: "1.8rem",
+                    fontSize: "1.7rem",
                     letterSpacing: "0.08em",
                     color: p.color,
                     textShadow: `0 0 10px ${p.color}60`,
@@ -188,16 +210,15 @@ export default function Projects() {
               <p
                 style={{
                   fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.78rem",
+                  fontSize: "0.76rem",
                   color: "rgba(255,255,255,0.55)",
-                  lineHeight: 1.7,
+                  lineHeight: 1.75,
                   marginBottom: "20px",
                 }}
               >
                 {p.desc}
               </p>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-2">
                 {p.tags.map((tag) => (
                   <span
@@ -205,7 +226,7 @@ export default function Projects() {
                     style={{
                       fontFamily: "'Space Mono', monospace",
                       fontSize: "0.62rem",
-                      padding: "3px 10px",
+                      padding: "4px 12px",
                       border: `1px solid ${p.color}40`,
                       color: p.color,
                       letterSpacing: "0.08em",
@@ -216,19 +237,16 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Bottom arrow */}
               <div
                 style={{
-                  position: "absolute",
-                  bottom: "16px",
-                  right: "20px",
+                  position: "absolute", bottom: "16px", right: "20px",
                   fontFamily: "'Space Mono', monospace",
                   fontSize: "0.7rem",
-                  color: `${p.color}60`,
+                  color: `${p.color}70`,
                   letterSpacing: "0.1em",
                 }}
               >
-                REPO →
+                GITHUB →
               </div>
             </div>
           ))}

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Contact() {
   const sectionRef = useRef(null);
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [status, setStatus] = useState("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
@@ -52,9 +52,7 @@ export default function Contact() {
   };
 
   const socials = [
-    { label: "GitHub", href: "https://github.com/shahamhijab", color: "#ff00ff" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/shahamhijab", color: "#00ffff" },
-    { label: "Twitter", href: "https://twitter.com/shahamhijab", color: "#ffff00" },
+    { label: "GitHub", href: "https://github.com/ShahamHijab", color: "#ff00ff" },
     { label: "Email", href: "mailto:shahamhijab@proton.me", color: "#00ff88" },
   ];
 
@@ -62,9 +60,8 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative min-h-screen py-24 px-6 overflow-hidden flex items-center"
+      className="relative min-h-screen py-32 overflow-hidden flex items-center"
     >
-      {/* Glow */}
       <div
         className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none"
         style={{
@@ -73,7 +70,7 @@ export default function Contact() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-8 md:px-16">
         <p
           className="section-tag reveal"
           style={{ fontFamily: "'Space Mono', monospace", color: "#00ff88" }}
@@ -94,7 +91,7 @@ export default function Contact() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-16">
-          {/* Left: info */}
+          {/* Left */}
           <div>
             <p
               className="reveal mb-8 leading-relaxed"
@@ -105,46 +102,34 @@ export default function Contact() {
                 color: "rgba(255,255,255,0.65)",
               }}
             >
-              Got a project idea? Want to collaborate? Or just want to talk about neon lights and
-              Three.js? I&apos;m all ears.
+              Got a project idea? Want to collaborate? Or just want to talk about AI and neon lights?
+              I&apos;m all ears.
             </p>
 
-            <div className="reveal space-y-4 mb-10">
-              <div
-                style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.8rem",
-                  color: "rgba(255,255,255,0.4)",
-                }}
-              >
-                <span style={{ color: "#00ff88" }}>→ EMAIL </span>
-                shahamhijab@proton.me
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.8rem",
-                  color: "rgba(255,255,255,0.4)",
-                }}
-              >
-                <span style={{ color: "#00ff88" }}>→ BASED </span>
-                Somewhere in the cloud
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.8rem",
-                  color: "rgba(255,255,255,0.4)",
-                }}
-              >
-                <span style={{ color: "#00ff88" }}>→ STATUS </span>
-                <span style={{ color: "#00ff88", textShadow: "0 0 6px #00ff88" }}>
-                  ● Available for projects
-                </span>
-              </div>
+            <div className="reveal space-y-5 mb-10">
+              {[
+                { label: "EMAIL", value: "shahamhijab@proton.me" },
+                { label: "GITHUB", value: "github.com/ShahamHijab" },
+                { label: "STATUS", value: "● Available for projects", green: true },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  style={{
+                    fontFamily: "'Space Mono', monospace",
+                    fontSize: "0.82rem",
+                    color: "rgba(255,255,255,0.45)",
+                    display: "flex",
+                    gap: "16px",
+                  }}
+                >
+                  <span style={{ color: "#00ff88", minWidth: "80px" }}>→ {item.label}</span>
+                  <span style={item.green ? { color: "#00ff88", textShadow: "0 0 6px #00ff88" } : {}}>
+                    {item.value}
+                  </span>
+                </div>
+              ))}
             </div>
 
-            {/* Socials */}
             <div className="reveal flex flex-wrap gap-3">
               {socials.map((s) => (
                 <a
@@ -155,12 +140,13 @@ export default function Contact() {
                   style={{
                     fontFamily: "'Space Mono', monospace",
                     fontSize: "0.75rem",
-                    padding: "8px 18px",
+                    padding: "10px 22px",
                     border: `1px solid ${s.color}40`,
                     color: s.color,
                     textShadow: `0 0 6px ${s.color}`,
                     letterSpacing: "0.1em",
                     transition: "all 0.3s",
+                    display: "inline-block",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = `${s.color}15`;
@@ -179,53 +165,36 @@ export default function Contact() {
 
           {/* Right: form */}
           <div className="reveal-right">
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label
-                    style={{
-                      fontFamily: "'Space Mono', monospace",
-                      fontSize: "0.65rem",
-                      color: "rgba(255,255,255,0.3)",
-                      letterSpacing: "0.2em",
-                      display: "block",
-                      marginBottom: "6px",
-                    }}
-                  >
-                    NAME
-                  </label>
-                  <input
-                    className="neon-input"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label
-                    style={{
-                      fontFamily: "'Space Mono', monospace",
-                      fontSize: "0.65rem",
-                      color: "rgba(255,255,255,0.3)",
-                      letterSpacing: "0.2em",
-                      display: "block",
-                      marginBottom: "6px",
-                    }}
-                  >
-                    EMAIL
-                  </label>
-                  <input
-                    className="neon-input"
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="your@email.com"
-                  />
-                </div>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                {[
+                  { name: "name", label: "NAME", placeholder: "Your name", type: "text" },
+                  { name: "email", label: "EMAIL", placeholder: "your@email.com", type: "email" },
+                ].map((field) => (
+                  <div key={field.name}>
+                    <label
+                      style={{
+                        fontFamily: "'Space Mono', monospace",
+                        fontSize: "0.65rem",
+                        color: "rgba(255,255,255,0.3)",
+                        letterSpacing: "0.2em",
+                        display: "block",
+                        marginBottom: "8px",
+                      }}
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      className="neon-input"
+                      name={field.name}
+                      type={field.type}
+                      value={form[field.name]}
+                      onChange={handleChange}
+                      required
+                      placeholder={field.placeholder}
+                    />
+                  </div>
+                ))}
               </div>
 
               <div>
@@ -236,7 +205,7 @@ export default function Contact() {
                     color: "rgba(255,255,255,0.3)",
                     letterSpacing: "0.2em",
                     display: "block",
-                    marginBottom: "6px",
+                    marginBottom: "8px",
                   }}
                 >
                   SUBJECT
@@ -259,7 +228,7 @@ export default function Contact() {
                     color: "rgba(255,255,255,0.3)",
                     letterSpacing: "0.2em",
                     display: "block",
-                    marginBottom: "6px",
+                    marginBottom: "8px",
                   }}
                 >
                   MESSAGE
@@ -278,9 +247,15 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="neon-btn w-full"
+                className="neon-btn"
                 disabled={status === "sending"}
-                style={{ opacity: status === "sending" ? 0.6 : 1 }}
+                style={{
+                  opacity: status === "sending" ? 0.6 : 1,
+                  width: "100%",
+                  padding: "16px 32px",
+                  fontSize: "0.9rem",
+                  letterSpacing: "0.15em",
+                }}
               >
                 {status === "sending" ? "TRANSMITTING..." : "SEND MESSAGE →"}
               </button>
@@ -294,6 +269,8 @@ export default function Contact() {
                     textShadow: "0 0 8px #00ff88",
                     textAlign: "center",
                     letterSpacing: "0.1em",
+                    padding: "12px",
+                    border: "1px solid #00ff8840",
                   }}
                 >
                   ✓ MESSAGE RECEIVED. I&apos;LL BE IN TOUCH.
@@ -308,6 +285,8 @@ export default function Contact() {
                     textShadow: "0 0 8px #ff6600",
                     textAlign: "center",
                     letterSpacing: "0.1em",
+                    padding: "12px",
+                    border: "1px solid #ff660040",
                   }}
                 >
                   ✗ {errorMsg}
