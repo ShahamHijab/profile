@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 
-const ProjectsScene = dynamic(() => import("./ProjectsScene"), { ssr: false });
+const ProjectsScene = dynamic(() => import("./Projectsscene"), { ssr: false });
 
 const projects = [
   {
