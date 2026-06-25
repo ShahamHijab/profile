@@ -7,7 +7,7 @@ const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
 export default function Hero() {
   const [visible, setVisible] = useState(false);
   const [text, setText] = useState("");
-  const fullText = "Developer · AI Builder · Maximalist";
+  const fullText = "Developer · Machine Learning Engineer";
 
   useEffect(() => {
     setVisible(true);

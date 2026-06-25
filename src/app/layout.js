@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Shaham Hijab — Developer",
-  description: "Portfolio of Shaham Hijab — developer, creator, maximalist.",
+  description: "Portfolio of Shaham Hijab — developer, creator.",
 };
 
 export default function RootLayout({ children }) {
