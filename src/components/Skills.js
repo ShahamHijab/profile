@@ -5,14 +5,14 @@ import dynamic from "next/dynamic";
 const SkillsScene = dynamic(() => import("./SkillsScene"), { ssr: false });
 
 const skills = [
-  { name: "JavaScript / Python", level: 88, color: "#ffff00" },
-  { name: "React / Next.js", level: 84, color: "#00ffff" },
+  { name: "JavaScript / Python", level: 88, color: "#c8ccd4" },
+  { name: "React / Next.js", level: 84, color: "#00aaff" },
   { name: "Three.js / WebGL", level: 70, color: "#ff00ff" },
-  { name: "Node.js / Express", level: 80, color: "#00ff88" },
-  { name: "SQL / Databases", level: 82, color: "#ff6600" },
-  { name: "Machine Learning / AI", level: 75, color: "#bf00ff" },
-  { name: "Computer Vision", level: 72, color: "#00ccff" },
-  { name: "UI/UX & Frontend", level: 85, color: "#ff00aa" },
+  { name: "Node.js / Express", level: 80, color: "#a855f7" },
+  { name: "SQL / Databases", level: 82, color: "#4dc8ff" },
+  { name: "Machine Learning / AI", level: 75, color: "#7c3aed" },
+  { name: "Computer Vision", level: 72, color: "#ff4dd8" },
+  { name: "UI/UX & Frontend", level: 85, color: "#e8eaef" },
 ];
 
 const tools = [
@@ -61,18 +61,17 @@ export default function Skills() {
       <div className="relative z-10 max-w-6xl mx-auto w-full px-8 md:px-16">
         <p
           className="section-tag reveal"
-          style={{ fontFamily: "'Space Mono', monospace", color: "#ffff00" }}
+          style={{ fontFamily: "'Space Mono', monospace", color: "#00aaff" }}
         >
           ✦ arsenal ✦
         </p>
         <h2
-          className="reveal mt-4 mb-16"
+          className="reveal mt-4 mb-16 chrome-text"
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
             fontSize: "clamp(3rem, 7vw, 6rem)",
             letterSpacing: "0.06em",
-            color: "#fff",
-            textShadow: "0 0 20px rgba(255,255,0,0.3)",
+            textShadow: "0 0 20px rgba(0,170,255,0.3)",
           }}
         >
           SKILLS & TOOLS
@@ -141,7 +140,7 @@ export default function Skills() {
             </p>
             <div className="flex flex-wrap gap-3">
               {tools.map((tool, i) => {
-                const colors = ["#ff00ff", "#00ffff", "#ffff00", "#00ff88", "#ff6600", "#bf00ff"];
+                const colors = ["#ff00ff", "#00aaff", "#a855f7", "#c8ccd4", "#ff4dd8", "#7c3aed"];
                 const c = colors[i % colors.length];
                 return (
                   <span

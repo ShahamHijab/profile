@@ -45,7 +45,7 @@ export default function Hero() {
       >
         <p
           className="section-tag mb-6"
-          style={{ fontFamily: "'Space Mono', monospace", color: "#00ffff" }}
+          style={{ fontFamily: "'Space Mono', monospace", color: "#00aaff" }}
         >
           ✦ welcome to my world ✦
         </p>
@@ -83,7 +83,7 @@ export default function Hero() {
             fontSize: "clamp(0.8rem, 1.8vw, 1rem)",
           }}
         >
-          <span style={{ color: "#00ffff" }}>_</span>
+          <span style={{ color: "#00aaff" }}>_</span>
           <span style={{ color: "rgba(255,255,255,0.75)" }}>{text}</span>
           <span
             style={{
@@ -125,17 +125,17 @@ export default function Hero() {
               fontSize: "0.85rem",
               letterSpacing: "0.12em",
               padding: "14px 36px",
-              border: "1px solid #00ffff",
+              border: "1px solid #00aaff",
               background: "transparent",
-              color: "#00ffff",
-              textShadow: "0 0 8px #00ffff",
+              color: "#00aaff",
+              textShadow: "0 0 8px #00aaff",
               boxShadow: "0 0 12px rgba(0,255,255,0.2)",
               transition: "all 0.3s",
               textDecoration: "none",
               display: "inline-block",
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "#00ffff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.textShadow = "none"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#00ffff"; e.currentTarget.style.textShadow = "0 0 8px #00ffff"; }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "#00aaff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.textShadow = "none"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#00aaff"; e.currentTarget.style.textShadow = "0 0 8px #00aaff"; }}
           >
             Let&apos;s Talk
           </a>

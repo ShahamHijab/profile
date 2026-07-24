@@ -6,7 +6,7 @@ export default function Cursor() {
   const canvasRef = useRef(null);
   const ripples = useRef([]);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const colors = ["#ff00ff", "#00ffff", "#ffff00", "#00ff88", "#ff6600"];
+  const colors = ["#ff00ff", "#00aaff", "#a855f7", "#c8ccd4", "#ff4dd8"];
 
   useEffect(() => {
     const ball = ballRef.current;

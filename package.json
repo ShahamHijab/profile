@@ -12,6 +12,7 @@
     "animejs": "^4.2.2",
     "dynamic": "^4.2.2",
     "next": "15.4.10",
+    "nodemailer": "^9.0.3",
     "postcss": "^8.5.6",
     "react": "19.1.0",
     "react-bits": "^1.0.5",

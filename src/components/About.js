@@ -47,7 +47,7 @@ export default function About() {
         <div>
           <p
             className="section-tag reveal"
-            style={{ fontFamily: "'Space Mono', monospace", color: "#00ffff" }}
+            style={{ fontFamily: "'Space Mono', monospace", color: "#00aaff" }}
           >
             ✦ about me ✦
           </p>
@@ -105,8 +105,8 @@ export default function About() {
                 style={{
                   fontFamily: "'Bebas Neue', sans-serif",
                   fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
-                  color: i % 2 === 0 ? "#ff00ff" : "#00ffff",
-                  textShadow: `0 0 15px ${i % 2 === 0 ? "#ff00ff" : "#00ffff"}`,
+                  color: i % 2 === 0 ? "#ff00ff" : "#00aaff",
+                  textShadow: `0 0 15px ${i % 2 === 0 ? "#ff00ff" : "#00aaff"}`,
                   lineHeight: 1,
                 }}
               >

@@ -53,7 +53,7 @@ export default function Contact() {
 
   const socials = [
     { label: "GitHub", href: "https://github.com/ShahamHijab", color: "#ff00ff" },
-    { label: "Email", href: "mailto:shahamhijab@proton.me", color: "#00ff88" },
+    { label: "Email", href: "mailto:shahamhijab@proton.me", color: "#00aaff" },
   ];
 
   return (
@@ -66,14 +66,14 @@ export default function Contact() {
         className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 60% at 30% 100%, rgba(0,255,136,0.05) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 60% at 30% 100%, rgba(0,170,255,0.05) 0%, transparent 70%)",
         }}
       />
 
       <div className="relative z-10 max-w-6xl mx-auto w-full px-8 md:px-16">
         <p
           className="section-tag reveal"
-          style={{ fontFamily: "'Space Mono', monospace", color: "#00ff88" }}
+          style={{ fontFamily: "'Space Mono', monospace", color: "#00aaff" }}
         >
           ✦ let&apos;s connect ✦
         </p>
@@ -84,7 +84,7 @@ export default function Contact() {
             fontSize: "clamp(3rem, 7vw, 6rem)",
             letterSpacing: "0.06em",
             color: "#fff",
-            textShadow: "0 0 20px rgba(0,255,136,0.3)",
+            textShadow: "0 0 20px rgba(0,170,255,0.3)",
           }}
         >
           GET IN TOUCH
@@ -122,8 +122,8 @@ export default function Contact() {
                     gap: "16px",
                   }}
                 >
-                  <span style={{ color: "#00ff88", minWidth: "80px" }}>→ {item.label}</span>
-                  <span style={item.green ? { color: "#00ff88", textShadow: "0 0 6px #00ff88" } : {}}>
+                  <span style={{ color: "#00aaff", minWidth: "80px" }}>→ {item.label}</span>
+                  <span style={item.green ? { color: "#00aaff", textShadow: "0 0 6px #00aaff" } : {}}>
                     {item.value}
                   </span>
                 </div>
@@ -265,12 +265,12 @@ export default function Contact() {
                   style={{
                     fontFamily: "'Space Mono', monospace",
                     fontSize: "0.8rem",
-                    color: "#00ff88",
-                    textShadow: "0 0 8px #00ff88",
+                    color: "#00aaff",
+                    textShadow: "0 0 8px #00aaff",
                     textAlign: "center",
                     letterSpacing: "0.1em",
                     padding: "12px",
-                    border: "1px solid #00ff8840",
+                    border: "1px solid #00aaff40",
                   }}
                 >
                   ✓ MESSAGE RECEIVED. I&apos;LL BE IN TOUCH.
@@ -281,12 +281,12 @@ export default function Contact() {
                   style={{
                     fontFamily: "'Space Mono', monospace",
                     fontSize: "0.8rem",
-                    color: "#ff6600",
-                    textShadow: "0 0 8px #ff6600",
+                    color: "#ff00ff",
+                    textShadow: "0 0 8px #ff00ff",
                     textAlign: "center",
                     letterSpacing: "0.1em",
                     padding: "12px",
-                    border: "1px solid #ff660040",
+                    border: "1px solid #ff00ff40",
                   }}
                 >
                   ✗ {errorMsg}

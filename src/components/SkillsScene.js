@@ -18,9 +18,15 @@ export default function SkillsScene() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     el.appendChild(renderer.domElement);
 
+    const ambient = new THREE.AmbientLight(0x404050, 1.4);
+    scene.add(ambient);
+    const chromeLight = new THREE.PointLight(0xe8eaef, 10, 20);
+    chromeLight.position.set(2, 2, 4);
+    scene.add(chromeLight);
+
     const boxes = [];
-    const boxColors = [0xff00ff, 0x00ffff, 0xffff00, 0x00ff88, 0xff6600, 0xbf00ff];
-    for (let i = 0; i < 30; i++) {
+    const boxColors = [0xff00ff, 0x00aaff, 0xa855f7, 0xff4dd8, 0x7c3aed];
+    for (let i = 0; i < 26; i++) {
       const size = Math.random() * 0.3 + 0.1;
       const geo = new THREE.BoxGeometry(size, size, size);
       const mat = new THREE.MeshBasicMaterial({
@@ -34,6 +40,21 @@ export default function SkillsScene() {
         (Math.random() - 0.5) * 14,
         (Math.random() - 0.5) * 10,
         (Math.random() - 0.5) * 6,
+      );
+      scene.add(mesh);
+      boxes.push(mesh);
+    }
+
+    // A handful of solid chrome boxes mixed in for the Y2K metallic touch
+    for (let i = 0; i < 5; i++) {
+      const size = Math.random() * 0.25 + 0.15;
+      const geo = new THREE.BoxGeometry(size, size, size);
+      const mat = new THREE.MeshStandardMaterial({ color: 0xd8dce2, metalness: 1, roughness: 0.3 });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(
+        (Math.random() - 0.5) * 12,
+        (Math.random() - 0.5) * 8,
+        (Math.random() - 0.5) * 5,
       );
       scene.add(mesh);
       boxes.push(mesh);

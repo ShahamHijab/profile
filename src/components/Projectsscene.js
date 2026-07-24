@@ -18,9 +18,15 @@ export default function ProjectsScene() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     el.appendChild(renderer.domElement);
 
+    const ambient = new THREE.AmbientLight(0x404050, 1.4);
+    scene.add(ambient);
+    const chromeLight = new THREE.PointLight(0xe8eaef, 10, 22);
+    chromeLight.position.set(-2, 1, 5);
+    scene.add(chromeLight);
+
     const orbs = [];
-    const orbColors = [0xff00ff, 0x00ffff, 0xffff00, 0x00ff88, 0xff6600];
-    for (let i = 0; i < 12; i++) {
+    const orbColors = [0xff00ff, 0x00aaff, 0xa855f7, 0xff4dd8];
+    for (let i = 0; i < 10; i++) {
       const geo = new THREE.SphereGeometry(Math.random() * 0.3 + 0.1, 8, 8);
       const mat = new THREE.MeshBasicMaterial({
         color: orbColors[i % orbColors.length],
@@ -33,6 +39,20 @@ export default function ProjectsScene() {
         (Math.random() - 0.5) * 20,
         (Math.random() - 0.5) * 15,
         (Math.random() - 0.5) * 8,
+      );
+      scene.add(mesh);
+      orbs.push({ mesh, speed: Math.random() * 0.5 + 0.2, offset: Math.random() * Math.PI * 2 });
+    }
+
+    // Chrome solid orbs for the Y2K metallic accent
+    for (let i = 0; i < 4; i++) {
+      const geo = new THREE.SphereGeometry(Math.random() * 0.22 + 0.12, 24, 24);
+      const mat = new THREE.MeshStandardMaterial({ color: 0xd8dce2, metalness: 1, roughness: 0.25 });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(
+        (Math.random() - 0.5) * 18,
+        (Math.random() - 0.5) * 12,
+        (Math.random() - 0.5) * 6,
       );
       scene.add(mesh);
       orbs.push({ mesh, speed: Math.random() * 0.5 + 0.2, offset: Math.random() * Math.PI * 2 });

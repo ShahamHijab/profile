@@ -33,7 +33,7 @@ export default function Navbar() {
         className="h-0.5 transition-all duration-200"
         style={{
           width: `${scrollPct}%`,
-          background: "linear-gradient(90deg, #ff00ff, #00ffff, #ffff00)",
+          background: "linear-gradient(90deg, #ff00ff, #a855f7, #00aaff, #c8ccd4)",
           boxShadow: "0 0 8px #ff00ff",
         }}
       />

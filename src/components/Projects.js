@@ -18,7 +18,7 @@ const projects = [
     title: "Netixsol Internship",
     desc: "A collection of web development projects built during my internship at Netixsol — includes full websites and components.",
     tags: ["HTML", "CSS", "JavaScript", "Web Dev"],
-    color: "#00ffff",
+    color: "#00aaff",
     repo: "https://github.com/ShahamHijab/Netixsol-Internship",
     year: "2024",
     emoji: "💼",
@@ -27,7 +27,7 @@ const projects = [
     title: "ASL 3-Letters Detector",
     desc: "Detects American Sign Language hand signs for 3-letter words in real time using Python and computer vision.",
     tags: ["Python", "OpenCV", "ML"],
-    color: "#ffff00",
+    color: "#c8ccd4",
     repo: "https://github.com/ShahamHijab/ASL-3Letters-Detector-Python",
     year: "2024",
     emoji: "🤟",
@@ -36,7 +36,7 @@ const projects = [
     title: "Solar Panel Cleaner",
     desc: "Automated solar panel cleaning system — hardware + software project that keeps panels efficient without manual effort.",
     tags: ["Automation", "IoT", "Python"],
-    color: "#00ff88",
+    color: "#4dc8ff",
     repo: "https://github.com/ShahamHijab/Automated-solar-panel-cleaning-system",
     year: "2024",
     emoji: "☀️",
@@ -45,7 +45,7 @@ const projects = [
     title: "TalentTrail",
     desc: "A talent discovery and tracking platform that connects recruiters with candidates through smart filtering.",
     tags: ["Web App", "JavaScript", "Database"],
-    color: "#ff6600",
+    color: "#7c3aed",
     repo: "https://github.com/ShahamHijab/TalentTrail",
     year: "2024",
     emoji: "🎯",
@@ -54,7 +54,7 @@ const projects = [
     title: "Clinic Database",
     desc: "A full clinic management database system with patient records, appointments, and billing — built in SQL.",
     tags: ["SQL", "Database", "Systems"],
-    color: "#bf00ff",
+    color: "#a855f7",
     repo: "https://github.com/ShahamHijab/Clinic-Database-System",
     year: "2023",
     emoji: "🏥",
@@ -111,25 +111,24 @@ export default function Projects() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 80% 30%, rgba(255,255,0,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 80% 30%, rgba(168,85,247,0.05) 0%, transparent 70%)",
         }}
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-16">
         <p
           className="section-tag reveal"
-          style={{ fontFamily: "'Space Mono', monospace", color: "#ff6600" }}
+          style={{ fontFamily: "'Space Mono', monospace", color: "#a855f7" }}
         >
           ✦ my work ✦
         </p>
         <h2
-          className="reveal mt-4 mb-4"
+          className="reveal mt-4 mb-4 chrome-text"
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
             fontSize: "clamp(3rem, 7vw, 6rem)",
             letterSpacing: "0.06em",
-            color: "#fff",
-            textShadow: "0 0 20px rgba(255,102,0,0.3)",
+            textShadow: "0 0 20px rgba(168,85,247,0.3)",
           }}
         >
           PROJECTS
