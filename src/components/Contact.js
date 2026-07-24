@@ -60,7 +60,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative min-h-screen py-32 overflow-hidden flex items-center"
+      className="relative min-h-screen py-24 md:py-28 overflow-hidden flex items-center mb-16 md:mb-20"
     >
       <div
         className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none"

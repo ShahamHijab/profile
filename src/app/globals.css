@@ -46,6 +46,7 @@ body {
 
 .neon-border-pink { border: 1px solid #ff00ff; box-shadow: 0 0 10px #ff00ff, inset 0 0 10px rgba(255,0,255,0.1); }
 .neon-border-blue { border: 1px solid #00aaff; box-shadow: 0 0 10px #00aaff, inset 0 0 10px rgba(0,170,255,0.1); }
+.neon-border-cyan { border: 1px solid #00aaff; box-shadow: 0 0 10px #00aaff, inset 0 0 10px rgba(0,170,255,0.1); }
 .neon-border-purple { border: 1px solid #a855f7; box-shadow: 0 0 10px #a855f7, inset 0 0 10px rgba(168,85,247,0.1); }
 
 /* Y2K chrome / brushed-metal accents */

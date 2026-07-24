@@ -103,7 +103,7 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="relative min-h-screen py-32 overflow-hidden"
+      className="relative min-h-screen pt-24 pb-20 md:pt-32 md:pb-24 overflow-hidden"
     >
       <ProjectsScene />
 

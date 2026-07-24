@@ -28,7 +28,7 @@ export default function Resume() {
     <section
       id="resume"
       ref={sectionRef}
-      className="relative py-40 md:py-48 lg:py-56 flex flex-col items-center text-center overflow-hidden"
+      className="relative mb-16 md:mb-20 lg:mb-24 py-24 md:py-28 lg:py-32 flex flex-col items-center text-center overflow-hidden"
     >
       <div
         className="absolute inset-0 pointer-events-none"
