@@ -28,20 +28,20 @@ export default function Resume() {
     <section
       id="resume"
       ref={sectionRef}
-      className="relative py-32 flex flex-col items-center text-center overflow-hidden"
+      className="relative py-40 md:py-48 lg:py-56 flex flex-col items-center text-center overflow-hidden"
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(191,0,255,0.05) 0%, transparent 70%)",
+            "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(168,85,247,0.05) 0%, transparent 70%)",
         }}
       />
 
-      <div className="relative z-10 px-8 md:px-16 max-w-2xl mx-auto w-full">
+      <div className="relative z-10 px-8 md:px-16 max-w-2xl mx-auto w-full py-8 md:py-12">
         <p
           className="section-tag reveal"
-          style={{ fontFamily: "'Space Mono', monospace", color: "#bf00ff" }}
+          style={{ fontFamily: "'Space Mono', monospace", color: "#a855f7" }}
         >
           ✦ credentials ✦
         </p>
@@ -52,7 +52,7 @@ export default function Resume() {
             fontSize: "clamp(3rem, 7vw, 6rem)",
             letterSpacing: "0.06em",
             color: "#fff",
-            textShadow: "0 0 20px rgba(191,0,255,0.4)",
+            textShadow: "0 0 20px rgba(168,85,247,0.4)",
           }}
         >
           MY RESUME
