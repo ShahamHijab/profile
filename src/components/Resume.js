@@ -28,7 +28,7 @@ export default function Resume() {
     <section
       id="resume"
       ref={sectionRef}
-      className="relative mb-16 md:mb-20 lg:mb-24 py-24 md:py-28 lg:py-32 flex flex-col items-center text-center overflow-hidden"
+      className="relative min-h-screen py-32 flex flex-col justify-center items-center text-center overflow-hidden"
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -38,7 +38,7 @@ export default function Resume() {
         }}
       />
 
-      <div className="relative z-10 px-8 md:px-16 max-w-2xl mx-auto w-full py-8 md:py-12">
+      <div className="relative z-10 px-8 md:px-16 max-w-2xl mx-auto w-full">
         <p
           className="section-tag reveal"
           style={{ fontFamily: "'Space Mono', monospace", color: "#a855f7" }}

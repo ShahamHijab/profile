@@ -1,8 +1,10 @@
 export default function Footer() {
   return (
     <footer
-      className="relative py-20 md:py-24 px-6 text-center overflow-hidden"
-      style={{ borderTop: "1px solid rgba(255,0,255,0.1)", marginTop: "3rem" }}
+      className="relative py-20 md:py-24 px-6 pb-20 md:pb-28 text-center overflow-hidden"
+      style={{
+        paddingBottom: "clamp(3rem, 6vw, 4.5rem)",
+      }}
     >
       <div
         className="absolute inset-0 pointer-events-none"

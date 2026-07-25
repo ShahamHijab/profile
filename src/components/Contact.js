@@ -60,7 +60,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative min-h-screen py-24 md:py-28 overflow-hidden flex items-center mb-16 md:mb-20"
+      className="relative min-h-screen py-32 mb-8 md:mb-12 overflow-hidden flex items-center"
     >
       <div
         className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none"
@@ -90,22 +90,22 @@ export default function Contact() {
           GET IN TOUCH
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-16">
+        <p
+          className="reveal mb-16 leading-relaxed max-w-2xl"
+          style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: "1.15rem",
+            fontStyle: "italic",
+            color: "rgba(255,255,255,0.65)",
+          }}
+        >
+          Got a project idea? Want to collaborate?
+          I&apos;m all ears.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-16 items-start">
           {/* Left */}
           <div>
-            <p
-              className="reveal mb-8 leading-relaxed"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "1.15rem",
-                fontStyle: "italic",
-                color: "rgba(255,255,255,0.65)",
-              }}
-            >
-              Got a project idea? Want to collaborate? Or just want to talk about AI and neon lights?
-              I&apos;m all ears.
-            </p>
-
             <div className="reveal space-y-5 mb-10">
               {[
                 { label: "EMAIL", value: "shahamhijab@proton.me" },

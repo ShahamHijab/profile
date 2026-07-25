@@ -77,8 +77,20 @@ export default function Skills() {
           SKILLS & TOOLS
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-16">
-          <div className="space-y-7">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <p
+              style={{
+                fontFamily: "'Space Mono', monospace",
+                fontSize: "0.7rem",
+                letterSpacing: "0.25em",
+                color: "rgba(255,255,255,0.3)",
+                marginBottom: "24px",
+              }}
+            >
+              PROFICIENCY
+            </p>
+            <div className="space-y-7">
             {skills.map((skill, i) => (
               <div key={skill.name} className="reveal">
                 <div className="flex justify-between mb-2">
@@ -124,6 +136,7 @@ export default function Skills() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
 
           <div className="reveal-right">

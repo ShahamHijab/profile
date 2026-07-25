@@ -85,8 +85,7 @@ export default function About() {
               lineHeight: 1.9,
             }}
           >
-            From AI detectors to full-stack platforms, I push every project until it screams.
-            Obsessed with neon, clean logic, and making the web feel alive.
+            From AI detectors to full-stack platforms, to AI automated solutions.
           </p>
           <a href="#contact" className="reveal neon-btn inline-block">
             Get In Touch
