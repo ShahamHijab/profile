@@ -63,29 +63,29 @@ export default function ResumeModal() {
           href="/resume.pdf"
           download
           style={{
-            fontFamily: "'Space Mono', monospace",
+            fontFamily: "'Geist Mono', monospace",
             fontSize: "0.85rem",
             letterSpacing: "0.12em",
             padding: "14px 36px",
-            border: "1px solid #00aaff",
+            border: "1px solid #2ea8ff",
             background: "transparent",
-            color: "#00aaff",
+            color: "#2ea8ff",
             cursor: "pointer",
-            textShadow: "0 0 8px #00aaff",
+            xShadow: "0 0 8px #2ea8ff",
             boxShadow: "0 0 12px rgba(0,170,255,0.2)",
             transition: "all 0.3s",
             textDecoration: "none",
             display: "inline-block",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#00aaff";
+            e.currentTarget.style.background = "#2ea8ff";
             e.currentTarget.style.color = "#000";
-            e.currentTarget.style.textShadow = "none";
+            e.currentTarget.style.xShadow = "none";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.color = "#00aaff";
-            e.currentTarget.style.textShadow = "0 0 8px #00aaff";
+            e.currentTarget.style.color = "#2ea8ff";
+            e.currentTarget.style.xShadow = "0 0 8px #2ea8ff";
           }}
         >
           ↓ DOWNLOAD PDF
@@ -128,12 +128,12 @@ export default function ResumeModal() {
               <span
                 className="chrome-text"
                 style={{
-                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontFamily: "'Instrument Serif', serif",
                   fontSize: "1.3rem",
                   letterSpacing: "0.2em",
                 }}
               >
-                RESUME.PDF
+                Résumé
               </span>
               <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
                 <a
@@ -141,10 +141,10 @@ export default function ResumeModal() {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "'Geist Mono', monospace",
                     fontSize: "0.7rem",
-                    color: "#ff00ff",
-                    textShadow: "0 0 6px #ff00ff",
+                    color: "#ff3df0",
+                    xShadow: "0 0 6px #ff3df0",
                     letterSpacing: "0.1em",
                     textDecoration: "none",
                   }}
@@ -155,10 +155,10 @@ export default function ResumeModal() {
                   href="/resume.pdf"
                   download
                   style={{
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "'Geist Mono', monospace",
                     fontSize: "0.7rem",
-                    color: "#00aaff",
-                    textShadow: "0 0 6px #00aaff",
+                    color: "#2ea8ff",
+                    xShadow: "0 0 6px #2ea8ff",
                     letterSpacing: "0.1em",
                     textDecoration: "none",
                   }}
@@ -168,13 +168,13 @@ export default function ResumeModal() {
                 <button
                   onClick={closeModal}
                   style={{
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "'Geist Mono', monospace",
                     color: "#c8ccd4",
                     fontSize: "0.8rem",
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(200,204,212,0.25)",
                     cursor: "pointer",
-                    textShadow: "0 0 8px #c8ccd4",
+                    xShadow: "0 0 8px #c8ccd4",
                     padding: "6px 10px",
                     letterSpacing: "0.12em",
                   }}
@@ -194,7 +194,7 @@ export default function ResumeModal() {
                     display: "flex", flexDirection: "column",
                     alignItems: "center", justifyContent: "center",
                     padding: "40px 20px",
-                    fontFamily: "'Space Mono', monospace",
+                    fontFamily: "'Geist Mono', monospace",
                     color: "rgba(255,255,255,0.5)",
                     fontSize: "0.85rem",
                     textAlign: "center",
@@ -230,7 +230,7 @@ export default function ResumeModal() {
                       display: "flex", flexDirection: "column",
                       alignItems: "center", justifyContent: "center",
                       padding: "40px 20px",
-                      fontFamily: "'Space Mono', monospace",
+                      fontFamily: "'Geist Mono', monospace",
                       color: "rgba(255,255,255,0.5)",
                       fontSize: "0.85rem",
                       textAlign: "center",

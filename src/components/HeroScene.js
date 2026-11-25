@@ -24,11 +24,11 @@ export default function HeroScene() {
     const ambient = new THREE.AmbientLight(0x404050, 1.2);
     scene.add(ambient);
 
-    const pinkLight = new THREE.PointLight(0xff00ff, 18, 20);
+    const pinkLight = new THREE.PointLight(0xff3df0, 18, 20);
     pinkLight.position.set(-3, 2, 3);
     scene.add(pinkLight);
 
-    const blueLight = new THREE.PointLight(0x00aaff, 18, 20);
+    const blueLight = new THREE.PointLight(0x2ea8ff, 18, 20);
     blueLight.position.set(3, -1, 3);
     scene.add(blueLight);
 
@@ -69,11 +69,9 @@ export default function HeroScene() {
 
     // Chrome torus knot — real metal, lit by the colored lights above
     const torusGeo = new THREE.TorusKnotGeometry(1.5, 0.4, 200, 32);
-    const torusMat = new THREE.MeshStandardMaterial({
-      color: 0xd8dce2,
-      metalness: 1,
-      roughness: 0.22,
-      envMapIntensity: 1.2,
+    const torusMat = new THREE.MeshPhysicalMaterial({
+      color: 0xd8dce2, metalness: 1, roughness: 0.16,
+      iridescence: 1, iridescenceIOR: 1.8, clearcoat: 1,
     });
     const torus = new THREE.Mesh(torusGeo, torusMat);
     scene.add(torus);

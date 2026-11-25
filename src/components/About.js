@@ -1,129 +1,34 @@
 "use client";
-import { useEffect, useRef } from "react";
-
-export default function About() {
-  const sectionRef = useRef(null);
-
+import { useEffect, useRef, useState } from "react";
+import Reveal from "./AnimatedSection";
+import GlassCard from "./GlassCard";
+function Count({ to, suffix = "" }) {
+  const r = useRef(null); const [n, setN] = useState(0);
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 120);
-            });
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const stats = [
-    { label: "Projects Built", value: "8+" },
-    { label: "Cups of Coffee", value: "∞" },
-    { label: "Technologies", value: "15+" },
-    { label: "Years Coding", value: "3+" },
-  ];
-
+    const o = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return; o.disconnect(); let s = null;
+      const f = (ts) => { s ??= ts; const p = Math.min((ts - s) / 1400, 1); setN(Math.round(to * (1 - Math.pow(1 - p, 4)))); p < 1 && requestAnimationFrame(f); };
+      requestAnimationFrame(f);
+    }); o.observe(r.current); return () => o.disconnect();
+  }, [to]);
+  return <span ref={r}>{n}{suffix}</span>;
+}
+export default function About() {
+  const big = { font: "400 clamp(3.4rem,7vw,5.5rem)/1 var(--serif)", letterSpacing: "-.03em" };
+  const cap = { font: "400 .78rem var(--mono)", color: "var(--mute)", marginTop: ".6rem" };
   return (
-    <section
-      id="about"
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center py-32 overflow-hidden"
-    >
-      <div
-        className="absolute top-0 right-0 w-1/2 h-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 80% at 80% 50%, rgba(0,255,255,0.04) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="max-w-6xl mx-auto w-full px-8 md:px-16 grid md:grid-cols-2 gap-16 items-center">
-        {/* Left */}
-        <div>
-          <p
-            className="section-tag reveal"
-            style={{ fontFamily: "'Space Mono', monospace", color: "#00aaff" }}
-          >
-            ✦ about me ✦
-          </p>
-          <h2
-            className="reveal mt-4 mb-8"
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: "clamp(3rem, 7vw, 6rem)",
-              letterSpacing: "0.06em",
-              color: "#fff",
-              textShadow: "0 0 20px rgba(255,0,255,0.3)",
-            }}
-          >
-            WHO AM I?
-          </h2>
-          <p
-            className="reveal mb-6 leading-relaxed"
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.1rem",
-              color: "rgba(255,255,255,0.75)",
-              fontStyle: "italic",
-            }}
-          >
-            I&apos;m a developer who believes software should be an{" "}
-            <span className="neon-text-pink">experience</span>, not just a tool. I craft
-            interactive, visually explosive digital worlds that make people feel something.
-          </p>
-          <p
-            className="reveal mb-10 leading-relaxed"
-            style={{
-              fontFamily: "'Space Mono', monospace",
-              fontSize: "0.88rem",
-              color: "rgba(255,255,255,0.5)",
-              lineHeight: 1.9,
-            }}
-          >
-            From AI detectors to full-stack platforms, to AI automated solutions.
-          </p>
-          <a href="#contact" className="reveal neon-btn inline-block">
-            Get In Touch
-          </a>
-        </div>
-
-        {/* Right: stats */}
-        <div className="grid grid-cols-2 gap-4">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`reveal p-8 ${i % 2 === 0 ? "neon-border-pink" : "neon-border-cyan"}`}
-              style={{ background: "rgba(255,255,255,0.02)" }}
-            >
-              <div
-                style={{
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
-                  color: i % 2 === 0 ? "#ff00ff" : "#00aaff",
-                  textShadow: `0 0 15px ${i % 2 === 0 ? "#ff00ff" : "#00aaff"}`,
-                  lineHeight: 1,
-                }}
-              >
-                {s.value}
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.7rem",
-                  color: "rgba(255,255,255,0.4)",
-                  letterSpacing: "0.15em",
-                  marginTop: "10px",
-                }}
-              >
-                {s.label}
-              </div>
-            </div>
-          ))}
+    <section id="about" className="sec">
+      <div className="wrap">
+        <Reveal><div className="kicker">About</div><h2 className="h2">Software that feels <em className="holo">alive.</em></h2></Reveal>
+        <div className="grid gap-4 md:grid-cols-6">
+          <Reveal className="md:col-span-4"><GlassCard style={{ padding: "2.4rem", height: "100%" }}>
+            <p style={{ font: "400 clamp(1.5rem,2.8vw,2.2rem)/1.25 var(--serif)" }}>I build software that&apos;s an experience, not just a tool, from AI detectors to full-stack platforms to automated agents that do the boring parts for you.</p>
+            <a href="#contact" className="btn ghost" style={{ marginTop: "2rem" }}>Get in touch ↗</a>
+          </GlassCard></Reveal>
+          <Reveal className="md:col-span-2" delay={100}><GlassCard style={{ padding: "2rem", height: "100%" }}><div style={big} className="holo"><Count to={8} suffix="+" /></div><div style={cap}>projects shipped</div></GlassCard></Reveal>
+          <Reveal className="md:col-span-2" delay={150}><GlassCard style={{ padding: "2rem" }}><div style={big}><Count to={15} suffix="+" /></div><div style={cap}>technologies</div></GlassCard></Reveal>
+          <Reveal className="md:col-span-2" delay={200}><GlassCard style={{ padding: "2rem" }}><div style={big}><Count to={3} suffix="+" /></div><div style={cap}>years coding</div></GlassCard></Reveal>
+          <Reveal className="md:col-span-2" delay={250}><GlassCard style={{ padding: "2rem" }}><div style={big} className="holo">∞</div><div style={cap}>cups of coffee</div></GlassCard></Reveal>
         </div>
       </div>
     </section>

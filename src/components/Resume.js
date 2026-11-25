@@ -28,7 +28,7 @@ export default function Resume() {
     <section
       id="resume"
       ref={sectionRef}
-      className="relative min-h-screen py-32 flex flex-col justify-center items-center text-center overflow-hidden"
+      className="relative  py-32 flex flex-col justify-center items-center text-center overflow-hidden"
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -41,26 +41,26 @@ export default function Resume() {
       <div className="relative z-10 px-8 md:px-16 max-w-2xl mx-auto w-full">
         <p
           className="section-tag reveal"
-          style={{ fontFamily: "'Space Mono', monospace", color: "#a855f7" }}
+          style={{ fontFamily: "'Geist Mono', monospace", color: "#a855f7" }}
         >
-          ✦ credentials ✦
+          credentials
         </p>
         <h2
           className="reveal mt-4 mb-6"
           style={{
-            fontFamily: "'Bebas Neue', sans-serif",
+            fontFamily: "'Instrument Serif', serif",
             fontSize: "clamp(3rem, 7vw, 6rem)",
             letterSpacing: "0.06em",
             color: "#fff",
-            textShadow: "0 0 20px rgba(168,85,247,0.4)",
+            xShadow: "0 0 20px rgba(168,85,247,0.4)",
           }}
         >
-          MY RESUME
+          My résumé
         </h2>
         <p
           className="reveal mb-10"
           style={{
-            fontFamily: "'Space Mono', monospace",
+            fontFamily: "'Geist Mono', monospace",
             fontSize: "0.82rem",
             color: "rgba(255,255,255,0.4)",
             lineHeight: 1.9,

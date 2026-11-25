@@ -1,170 +1,39 @@
 "use client";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-
 const HeroScene = dynamic(() => import("./HeroScene"), { ssr: false });
-
+const words = ["Developer", "ML Engineer", "Vision hacker", "Interested in learning more"];
+const reel = ["Computer Vision", "Next.js", "Three.js", "Deep Learning", "Python", "Automation", "AI Agents", "WebGL"];
 export default function Hero() {
-  const [visible, setVisible] = useState(false);
-  const [text, setText] = useState("");
-  const fullText = "Developer · Machine Learning Engineer";
-
+  const [t, setT] = useState(""); const [w, setW] = useState(0); const [del, setDel] = useState(false);
   useEffect(() => {
-    setVisible(true);
-    let i = 0;
-    const interval = setInterval(() => {
-      setText(fullText.slice(0, i + 1));
-      i++;
-      if (i >= fullText.length) clearInterval(interval);
-    }, 55);
-    return () => clearInterval(interval);
-  }, []);
-
+    const full = words[w]; let id;
+    if (!del && t === full) id = setTimeout(() => setDel(true), 1400);
+    else if (del && t === "") { setDel(false); setW((w + 1) % words.length); }
+    else id = setTimeout(() => setT(del ? full.slice(0, t.length - 1) : full.slice(0, t.length + 1)), del ? 35 : 75);
+    return () => clearTimeout(id);
+  }, [t, del, w]);
   return (
-    <section
-      id="home"
-      className="relative h-screen flex flex-col justify-center items-center overflow-hidden"
-    >
+    <section id="home" className="relative h-screen min-h-[640px] flex flex-col justify-center overflow-hidden">
       <HeroScene />
-
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,0,255,0.08) 0%, transparent 70%)",
-        }}
-      />
-
-      <div
-        className="relative z-10 text-center px-8 md:px-16 max-w-5xl mx-auto w-full"
-        style={{
-          transform: visible ? "translateY(0)" : "translateY(40px)",
-          opacity: visible ? 1 : 0,
-          transition: "all 1.2s cubic-bezier(0.16,1,0.3,1)",
-        }}
-      >
-        <p
-          className="section-tag mb-6"
-          style={{ fontFamily: "'Space Mono', monospace", color: "#00aaff" }}
-        >
-          ✦ welcome to my world ✦
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 45%,transparent,var(--bg) 85%)" }} />
+      <div className="wrap relative z-10 w-full">
+        <span className="pill" style={{ display: "inline-flex", gap: 8, alignItems: "center" }}>
+          <i style={{ width: 7, height: 7, borderRadius: 9, background: "var(--violet)", boxShadow: "0 0 10px var(--violet)", animation: "flicker 2s infinite" }} /> Open to new projects
+        </span>
+        <h1 className="glitch" style={{ font: "400 clamp(4.2rem,15vw,12.5rem)/.86 var(--serif)", letterSpacing: "-.04em", margin: "1.6rem 0 1.4rem" }}>
+          Shaham<br /><span className="holo" style={{ fontStyle: "italic", paddingRight: ".1em" }}>Hijab</span>
+        </h1>
+        <p style={{ font: "400 clamp(.95rem,1.8vw,1.15rem) var(--mono)", color: "var(--chrome)", minHeight: "1.6em" }}>
+          <span style={{ color: "var(--blue)" }}>~/</span> {t}<span style={{ color: "var(--pink)", animation: "flicker 1s infinite" }}>▍</span>
         </p>
-
-        <h1
-          className="glitch"
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(4.5rem, 14vw, 11rem)",
-            letterSpacing: "0.06em",
-            lineHeight: 0.95,
-            color: "#ffffff",
-            textShadow: "0 0 20px rgba(255,0,255,0.5), 0 0 40px rgba(255,0,255,0.3)",
-          }}
-        >
-          SHAHAM
-        </h1>
-        <h1
-          className="gradient-text"
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(4.5rem, 14vw, 11rem)",
-            letterSpacing: "0.06em",
-            lineHeight: 0.95,
-            marginBottom: "28px",
-          }}
-        >
-          HIJAB
-        </h1>
-
-        <div
-          className="flex items-center justify-center gap-2 mb-12"
-          style={{
-            fontFamily: "'Space Mono', monospace",
-            fontSize: "clamp(0.8rem, 1.8vw, 1rem)",
-          }}
-        >
-          <span style={{ color: "#00aaff" }}>_</span>
-          <span style={{ color: "rgba(255,255,255,0.75)" }}>{text}</span>
-          <span
-            style={{
-              color: "#ff00ff",
-              textShadow: "0 0 8px #ff00ff",
-              animation: "flicker 1s infinite",
-            }}
-          >
-            |
-          </span>
-        </div>
-
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
-          <a
-            href="#projects"
-            style={{
-              fontFamily: "'Space Mono', monospace",
-              fontSize: "0.85rem",
-              letterSpacing: "0.12em",
-              padding: "14px 36px",
-              border: "1px solid #ff00ff",
-              background: "transparent",
-              color: "#ff00ff",
-              textShadow: "0 0 8px #ff00ff",
-              boxShadow: "0 0 12px rgba(255,0,255,0.2)",
-              transition: "all 0.3s",
-              textDecoration: "none",
-              display: "inline-block",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "#ff00ff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.textShadow = "none"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#ff00ff"; e.currentTarget.style.textShadow = "0 0 8px #ff00ff"; }}
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            style={{
-              fontFamily: "'Space Mono', monospace",
-              fontSize: "0.85rem",
-              letterSpacing: "0.12em",
-              padding: "14px 36px",
-              border: "1px solid #00aaff",
-              background: "transparent",
-              color: "#00aaff",
-              textShadow: "0 0 8px #00aaff",
-              boxShadow: "0 0 12px rgba(0,255,255,0.2)",
-              transition: "all 0.3s",
-              textDecoration: "none",
-              display: "inline-block",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "#00aaff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.textShadow = "none"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#00aaff"; e.currentTarget.style.textShadow = "0 0 8px #00aaff"; }}
-          >
-            Let&apos;s Talk
-          </a>
+        <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: "2.2rem" }}>
+          <a href="#projects" className="btn">See the work ↗</a>
+          <a href="#contact" className="btn ghost">Let&apos;s talk</a>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <div
-        style={{
-          position: "absolute", bottom: "32px", left: "50%", transform: "translateX(-50%)",
-          display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", opacity: 0.4,
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "'Space Mono', monospace",
-            fontSize: "0.6rem",
-            letterSpacing: "0.35em",
-            color: "#ff00ff",
-          }}
-        >
-          SCROLL
-        </span>
-        <div
-          style={{
-            width: "1px", height: "50px",
-            background: "linear-gradient(#ff00ff, transparent)",
-          }}
-        />
+      <div className="marquee absolute bottom-0 left-0 w-full pb-24 md:pb-28 pointer-events-none" style={{ opacity: .55 }}>
+        {[0, 1].map((k) => <div key={k}>{reel.map((r) => <span key={r + k} style={{ font: "italic 400 2.2rem var(--serif)", color: "transparent", WebkitTextStroke: "1px rgba(255,255,255,.35)" }}>{r} ✦</span>)}</div>)}
       </div>
     </section>
   );

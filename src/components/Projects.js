@@ -1,253 +1,71 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
-
+import Reveal from "./AnimatedSection";
+import GlassCard from "./GlassCard";
 const ProjectsScene = dynamic(() => import("./Projectsscene"), { ssr: false });
-
+const gh = "https://github.com/ShahamHijab/";
 const projects = [
-  {
-    title: "VisionBot",
-    desc: "An AI-powered vision bot that processes and understands visual input. Built with Python and deep learning.",
-    tags: ["Python", "AI", "Computer Vision"],
-    color: "#ff00ff",
-    repo: "https://github.com/ShahamHijab/visionbot",
-    year: "2024",
-    emoji: "🤖",
-  },
-  {
-    title: "Netixsol Internship",
-    desc: "A collection of web development projects built during my internship at Netixsol — includes full websites and components.",
-    tags: ["HTML", "CSS", "JavaScript", "Web Dev"],
-    color: "#00aaff",
-    repo: "https://github.com/ShahamHijab/Netixsol-Internship",
-    year: "2024",
-    emoji: "💼",
-  },
-  {
-    title: "ASL 3-Letters Detector",
-    desc: "Detects American Sign Language hand signs for 3-letter words in real time using Python and computer vision.",
-    tags: ["Python", "OpenCV", "ML"],
-    color: "#c8ccd4",
-    repo: "https://github.com/ShahamHijab/ASL-3Letters-Detector-Python",
-    year: "2024",
-    emoji: "🤟",
-  },
-  {
-    title: "Solar Panel Cleaner",
-    desc: "Automated solar panel cleaning system — hardware + software project that keeps panels efficient without manual effort.",
-    tags: ["Automation", "IoT", "Python"],
-    color: "#4dc8ff",
-    repo: "https://github.com/ShahamHijab/Automated-solar-panel-cleaning-system",
-    year: "2024",
-    emoji: "☀️",
-  },
-  {
-    title: "TalentTrail",
-    desc: "A talent discovery and tracking platform that connects recruiters with candidates through smart filtering.",
-    tags: ["Web App", "JavaScript", "Database"],
-    color: "#7c3aed",
-    repo: "https://github.com/ShahamHijab/TalentTrail",
-    year: "2024",
-    emoji: "🎯",
-  },
-  {
-    title: "Clinic Database",
-    desc: "A full clinic management database system with patient records, appointments, and billing — built in SQL.",
-    tags: ["SQL", "Database", "Systems"],
-    color: "#a855f7",
-    repo: "https://github.com/ShahamHijab/Clinic-Database-System",
-    year: "2023",
-    emoji: "🏥",
-  },
-  {
-    title: "Code Breaker",
-    desc: "A cryptography/puzzle game where players crack codes and ciphers across escalating levels of difficulty.",
-    tags: ["Game", "Python", "Logic"],
-    color: "#ff00aa",
-    repo: "https://github.com/ShahamHijab/Code-Breaker",
-    year: "2023",
-    emoji: "🔐",
-  },
-  {
-    title: "Image Caption Generator",
-    desc: "Generates natural language captions for images automatically using deep learning and NLP models.",
-    tags: ["Python", "Deep Learning", "NLP"],
-    color: "#00ccff",
-    repo: "https://github.com/ShahamHijab/Image-Caption-Generator",
-    year: "2023",
-    emoji: "🖼️",
-  },
+  { title: "VisionBot", desc: "An AI-powered vision bot that processes and understands visual input. Built with Python and deep learning.", tags: ["Python", "AI", "Computer Vision"], color: "#ff3df0", repo: "visionbot", year: "2024", emoji: "🤖", cat: "AI & Vision" },
+  { title: "ASL 3-Letters Detector", desc: "Detects American Sign Language hand signs for 3-letter words in real time using Python and computer vision.", tags: ["Python", "OpenCV", "ML"], color: "#d9dce6", repo: "ASL-3Letters-Detector-Python", year: "2024", emoji: "🤟", cat: "AI & Vision" },
+  { title: "Solar Panel Cleaner", desc: "Automated solar panel cleaning system: hardware plus software that keeps panels efficient without manual effort.", tags: ["Automation", "IoT", "Python"], color: "#4dc8ff", repo: "Automated-solar-panel-cleaning-system", year: "2024", emoji: "☀️", cat: "Systems" },
+  { title: "TalentTrail", desc: "A talent discovery and tracking platform that connects recruiters with candidates through smart filtering.", tags: ["Web App", "JavaScript", "Database"], color: "#a06bff", repo: "TalentTrail", year: "2024", emoji: "🎯", cat: "Web" },
+  { title: "Clinic Database", desc: "A clinic management database with patient records, appointments and billing, built in SQL.", tags: ["SQL", "Database"], color: "#a06bff", repo: "Clinic-Database-System", year: "2023", emoji: "🏥", cat: "Systems" },
+  { title: "Image Caption Generator", desc: "Generates natural-language captions for images automatically using deep learning and NLP.", tags: ["Python", "Deep Learning", "NLP"], color: "#2ea8ff", repo: "Image-Caption-Generator", year: "2023", emoji: "🖼️", cat: "AI & Vision" },
 ];
-
+const cats = ["All", "AI & Vision", "Web", "Systems"];
 export default function Projects() {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.querySelectorAll(".reveal, .reveal-left, .reveal-right").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
+  const [f, setF] = useState("All");
+  const list = projects.filter((p) => f === "All" || p.cat === f);
   return (
-    <section
-      id="projects"
-      ref={sectionRef}
-      className="relative min-h-screen pt-24 pb-20 md:pt-32 md:pb-24 overflow-hidden"
-    >
+    <section id="projects" className="sec overflow-hidden">
       <ProjectsScene />
-
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 80% 30%, rgba(168,85,247,0.05) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-16">
-        <p
-          className="section-tag reveal"
-          style={{ fontFamily: "'Space Mono', monospace", color: "#a855f7" }}
-        >
-          ✦ my work ✦
-        </p>
-        <h2
-          className="reveal mt-4 mb-4 chrome-text"
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: "clamp(3rem, 7vw, 6rem)",
-            letterSpacing: "0.06em",
-            textShadow: "0 0 20px rgba(168,85,247,0.3)",
-          }}
-        >
-          PROJECTS
-        </h2>
-        <p
-          className="reveal mb-16"
-          style={{
-            fontFamily: "'Space Mono', monospace",
-            fontSize: "0.8rem",
-            color: "rgba(255,255,255,0.3)",
-            letterSpacing: "0.1em",
-          }}
-        >
-          → CLICK ANY CARD TO OPEN THE REPOSITORY
-        </p>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p, i) => (
-            <div
-              key={p.title}
-              className="project-card reveal"
-              onClick={() => window.open(p.repo, "_blank")}
-              style={{
-                background: "rgba(255,255,255,0.025)",
-                border: `1px solid ${p.color}30`,
-                padding: "28px 28px 48px 28px",
-                position: "relative",
-                overflow: "hidden",
-                borderRadius: "2px",
-                animationDelay: `${i * 0.1}s`,
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = `${p.color}80`;
-                e.currentTarget.style.boxShadow = `0 0 30px ${p.color}20, inset 0 0 30px ${p.color}05`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = `${p.color}30`;
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute", top: 0, right: 0,
-                  width: "60px", height: "60px",
-                  background: `linear-gradient(225deg, ${p.color}20, transparent)`,
-                }}
-              />
-
-              <div
-                style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.65rem",
-                  color: `${p.color}80`,
-                  letterSpacing: "0.2em",
-                  marginBottom: "16px",
-                }}
-              >
-                {p.year}
+      <div className="wrap relative z-10">
+        <Reveal><div className="kicker">Selected work</div><h2 className="h2" style={{ marginBottom: "1.5rem" }}>Things I&apos;ve <em className="holo">built.</em></h2></Reveal>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: "2.2rem" }}>
+          {cats.map((c) => <button key={c} onClick={() => setF(c)} className="pill" style={{ cursor: "pointer", ...(f === c ? { background: "#fff", color: "#000" } : {}) }}>{c}</button>)}
+        </div>
+        {(f === "All" || f === "Web" || f === "AI & Vision") && (
+          <Reveal>
+            <GlassCard tilt={2} style={{ padding: "clamp(1.2rem,3vw,2.4rem)", marginBottom: "1rem" }}>
+              <div className="grid gap-8 lg:grid-cols-5 items-center">
+                <div className="lg:col-span-2">
+                  <span className="pill" style={{ borderColor: "#3dffa055", color: "#3dffa0" }}>● Live on Vercel</span>
+                  <h3 style={{ font: "400 clamp(2.4rem,4vw,3.4rem)/1 var(--serif)", margin: "1.2rem 0" }}>ShareSafe 🔒</h3>
+                  <ul style={{ color: "var(--mute)", fontSize: ".95rem", lineHeight: 1.7, display: "grid", gap: ".8rem", listStyle: "none" }}>
+                    <li>Privacy app that redacts sensitive content from images and PDFs before sharing. It detects faces and text via OCR plus pattern matching (emails, phone numbers, addresses, URLs, tokens), then exports a protected file.</li>
+                    <li>Everything stays in the browser: no backend upload or storage. A review step with manual redaction boxes catches what automatic detection misses.</li>
+                  </ul>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", margin: "1.4rem 0" }}>
+                    {["Next.js", "OCR", "Privacy", "PDF"].map((t) => <span key={t} className="pill" style={{ fontSize: ".7rem" }}>{t}</span>)}
+                  </div>
+                  <a href="https://share-safe-img-pdf.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn">Open live app ↗</a>
+                </div>
+                <div className="lg:col-span-3 browser">
+                  <div className="bar"><b style={{ background: "#ff5f57" }} /><b style={{ background: "#febc2e" }} /><b style={{ background: "#28c840" }} /><span style={{ marginLeft: 10 }}>share-safe-img-pdf.vercel.app</span></div>
+                  <div className="live"><iframe src="https://share-safe-img-pdf.vercel.app/" title="ShareSafe live preview" loading="lazy" tabIndex={-1} /></div>
+                </div>
               </div>
-
-              <div className="flex items-start gap-3 mb-4">
-                <span style={{ fontSize: "1.8rem" }}>{p.emoji}</span>
-                <h3
-                  style={{
-                    fontFamily: "'Bebas Neue', sans-serif",
-                    fontSize: "1.7rem",
-                    letterSpacing: "0.08em",
-                    color: p.color,
-                    textShadow: `0 0 10px ${p.color}60`,
-                    lineHeight: 1.1,
-                  }}
-                >
-                  {p.title}
-                </h3>
-              </div>
-
-              <p
-                style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.76rem",
-                  color: "rgba(255,255,255,0.55)",
-                  lineHeight: 1.75,
-                  marginBottom: "20px",
-                }}
-              >
-                {p.desc}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {p.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      fontFamily: "'Space Mono', monospace",
-                      fontSize: "0.62rem",
-                      padding: "4px 12px",
-                      border: `1px solid ${p.color}40`,
-                      color: p.color,
-                      letterSpacing: "0.08em",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div
-                style={{
-                  position: "absolute", bottom: "16px", right: "20px",
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: "0.7rem",
-                  color: `${p.color}70`,
-                  letterSpacing: "0.1em",
-                }}
-              >
-                GITHUB →
-              </div>
-            </div>
+            </GlassCard>
+          </Reveal>
+        )}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {list.map((p, i) => (
+            <Reveal key={p.title} delay={i * 50}>
+              <a href={gh + p.repo} target="_blank" rel="noopener noreferrer" style={{ display: "block", height: "100%" }}>
+                <GlassCard style={{ padding: "2rem", height: "100%", minHeight: 260, display: "flex", flexDirection: "column" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", font: "400 .75rem var(--mono)", color: "var(--mute)" }}>
+                    <span style={{ fontSize: "2rem", filter: `drop-shadow(0 0 14px ${p.color})` }}>{p.emoji}</span><span>{p.year}</span>
+                  </div>
+                  <h3 style={{ font: "400 2rem/1.05 var(--serif)", margin: "1.4rem 0 .7rem", letterSpacing: "-.01em" }}>{p.title}</h3>
+                  <p style={{ color: "var(--mute)", fontSize: ".92rem", lineHeight: 1.65, maxWidth: "52ch" }}>{p.desc}</p>
+                  <div style={{ marginTop: "auto", paddingTop: "1.4rem", display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
+                    {p.tags.map((t) => <span key={t} className="pill" style={{ fontSize: ".7rem", padding: ".3rem .75rem", borderColor: p.color + "55" }}>{t}</span>)}
+                    <span style={{ marginLeft: "auto", color: p.color, fontSize: "1.2rem" }}>↗</span>
+                  </div>
+                </GlassCard>
+              </a>
+            </Reveal>
           ))}
         </div>
       </div>
